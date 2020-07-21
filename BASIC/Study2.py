@@ -1,3 +1,7 @@
+'''
+리스트 및 문자열
+'''
+
 
 #여러 줄 한번에 쓰기
 multiline="""
@@ -52,7 +56,7 @@ if any("abc" in s for s in some_list):
 
 #특정 문자열을 포함하는 문자열 출력하기
 some_list = ['abc-123', 'def-456', 'ghi-789', 'abc-456']
-
+test = [s for s in some_list if "abc" in s]
 #길게 쓰면
 resultlist = []
 for s in some_list:
