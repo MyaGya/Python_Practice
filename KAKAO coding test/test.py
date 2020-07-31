@@ -1,4 +1,5 @@
 from collections import *
+import itertools
 original = [[1, 2, 3],
             [4, 5, 6],
             [7, 8, 9]]
@@ -27,3 +28,26 @@ for L in List:
     data.append(TEST(L))
 
 print(data[1].x)
+
+# 순열 테스트
+
+pool = ['A', 'B', 'C', 'D']
+
+print(list(map(list,itertools.permutations(pool))))
+print(list(map(''.join, itertools.permutations(pool))))
+# 반복 테스트
+
+List = [1, 2, 3, 4, 5]
+
+for i in List:
+
+    i = 1
+    print(i)
+
+print(List)
+
+# find 테스트
+
+List = {1, 2, 3, 4, 5}
+if 1 in List:
+    print("TRUE")
