@@ -1,3 +1,4 @@
+
 from collections import *
 import itertools
 original = [[1, 2, 3],
@@ -37,7 +38,8 @@ print(list(map(list,itertools.permutations(pool))))
 print(list(map(''.join, itertools.permutations(pool))))
 # 반복 테스트
 
-List = [1, 2, 3, 4, 5]
+List = deque()
+List.append([1,2,3,4,5])
 
 for i in List:
 
@@ -51,3 +53,26 @@ print(List)
 List = {1, 2, 3, 4, 5}
 if 1 in List:
     print("TRUE")
+
+# 반복 도중 리스트가 사라지면 어떻게되는가?
+
+List = deque()
+List.append(1)
+List.append(2)
+List.append(3)
+List.append(4)
+List.append(5)
+
+try:
+    for i in range(len(List)):
+        if i == 0:
+            del List[2]
+        print(List[i])
+except:
+    pass
+del List[2]
+print(List)
+
+class Node:
+    def __init__(self):
+        self.next = None
