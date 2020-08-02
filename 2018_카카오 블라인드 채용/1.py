@@ -1,2 +1,32 @@
 from collections import deque
-def __init__(self, element): self.element = element self.next = None self.previous = None class DoublyLinkedList: def __init__(self): self.head = Node('head') def find(self, item): cur_node = self.head while cur_node.element != item: cur_node = cur_node.next return cur_node def insert(self, new, item): new_node = Node(new) cur_node = self.find(item) new_node.next = cur_node.next cur_node.next = new_node new_node.previous = cur_node def show(self): cur_node = self.head while cur_node.next is not None: print(cur_node.element, end=' -> ') cur_node = cur_node.next print(cur_node.element) """ find_previous 는 사용할 필요가 없다. """ def remove(self, item): cur_node = self.find(item) cur_node.previous.next = cur_node.next cur_node.previous = None if cur_node.next is not None: cur_node.next.previous = cur_node.previous cur_node.next = None def find_last(self): cur_node = self.head while cur_node.next is not None: cur_node = cur_node.next return cur_node def show_reverse(self): cur_node = self.find_last() while cur_node.previous is not None: print(cur_node.element, end=' <- ') cur_node = cur_node.previous print(cur_node.element) boo = DoublyLinkedList() boo.insert('1', 'head') boo.insert('2', '1') boo.insert('3', '2') boo.insert('4', '3') boo.show() boo.remove('4') boo.show() print(boo.find_last().element) boo.show_reverse()
+tmp = input().split(';')
+
+def findZero(x,y):
+    global data
+    if x<0 or y<0:
+        return 1
+    try:
+        if data[x][y] == 0:
+            return 1
+    except:
+        return 1
+    return 0
+
+def init(x,y):
+    ret = 0
+    ret += findZero(x+1,y)
+    ret += findZero(x -1, y)
+    ret += findZero(x , y+1)
+    ret += findZero(x , y-1)
+    return ret
+
+data = []
+for s in tmp:
+    data.append(list(map(int,s.split(' '))))
+
+ans = 0
+for i in range(len(data)):
+    for j in range(len(data[0])):
+        if data[i][j] == 1:
+            ans += init(i, j)
+print(ans)
