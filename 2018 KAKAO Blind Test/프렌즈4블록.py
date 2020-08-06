@@ -15,9 +15,9 @@ def check(i,j):
     pass
 
 def solution(m, n, board):
-    Flag = [[False for _ in n] for _ in m]
+    Flag = [[0 for _ in range(n)] for _ in range(m)]
     for i in range(m):
         for j in range(n):
             check(i,j)
 
-print(solution(5,4,['TTTANT', 'RRFACC', 'RRRFCC', 'TRRRAA', 'TTMMMF', 'TMMTTJ']))
+print(solution(6,6,['TTTANT', 'RRFACC', 'RRRFCC', 'TRRRAA', 'TTMMMF', 'TMMTTJ']))
