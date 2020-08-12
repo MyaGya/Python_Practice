@@ -1,0 +1,2 @@
+def TimeComplexityTest():
+    return True

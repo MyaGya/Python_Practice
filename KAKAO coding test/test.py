@@ -76,3 +76,7 @@ print(List)
 class Node:
     def __init__(self):
         self.next = None
+
+
+tmp = [[1 for _ in range(3)] for _ in range(10)]
+print(tmp[9][2])
