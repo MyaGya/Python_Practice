@@ -80,3 +80,8 @@ class Node:
 
 tmp = [[1 for _ in range(3)] for _ in range(10)]
 print(tmp[9][2])
+
+tmp = [1,2,3,4,5]
+tmp2 = tmp
+tmp2.clear()
+print(tmp)
