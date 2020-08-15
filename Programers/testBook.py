@@ -27,3 +27,12 @@ while len(number):
 heapq.heappush(number,1)
 heapq.heappush(number,1)
 heapq.heappush(number,1)
+
+
+# replace Test
+
+test = "A V DD g f H bn o ,. d"
+print(test)
+
+test = test.replace(" ","")
+print(test)
