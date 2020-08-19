@@ -36,3 +36,8 @@ print(test)
 
 test = test.replace(" ","")
 print(test)
+
+Cond = [1,2,3]
+
+
+print(List)
