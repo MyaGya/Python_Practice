@@ -36,3 +36,10 @@ print(test)
 
 test = test.replace(" ","")
 print(test)
+
+Cond = [1,2,3]
+
+
+
+items = [['a', 'b', 'c,'], ['1', '2', '3', '4'], ['!', '@', '#']]
+print(*items)
