@@ -59,9 +59,14 @@ print(data)
 
 # Counter
 from collections import Counter
-from functools import reduce
 clothes = [['yellow_hat', 'headgear'], ['blue_sunglasses', 'eyewear'], ['green_turban', 'headgear']]
 print([a + 1 for a in Counter([x[1] for x in clothes]).values()])
 
+
+def A():
+
+    def B():
+        return 2
+    return 1
 
 
