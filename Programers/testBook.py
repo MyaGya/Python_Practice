@@ -70,3 +70,5 @@ def A():
     return 1
 
 
+testList = [[[0for _ in range(2)] for _ in range(5)] for _ in range(10)]
+print(testList)
