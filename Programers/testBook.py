@@ -43,3 +43,32 @@ Cond = [1,2,3]
 
 items = [['a', 'b', 'c,'], ['1', '2', '3', '4'], ['!', '@', '#']]
 print(*items)
+
+
+def solution(numbers):
+    numbers = list(map(str, numbers))
+    numbers.sort(key=lambda x: x * 4, reverse=True)
+    return str(int(''.join(numbers)))
+
+print(solution([3,30,34,5,9]))
+
+data = [(1,2), (2,3),(3,4), (5,10), (10,5)]
+data.sort(key = lambda x : x[1] - x[0])
+print(data)
+
+
+# Counter
+from collections import Counter
+clothes = [['yellow_hat', 'headgear'], ['blue_sunglasses', 'eyewear'], ['green_turban', 'headgear']]
+print([a + 1 for a in Counter([x[1] for x in clothes]).values()])
+
+
+def A():
+
+    def B():
+        return 2
+    return 1
+
+
+testList = [[[0for _ in range(2)] for _ in range(5)] for _ in range(10)]
+print(testList)
