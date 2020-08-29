@@ -72,3 +72,10 @@ def A():
 
 testList = [[[0for _ in range(2)] for _ in range(5)] for _ in range(10)]
 print(testList)
+
+
+user = []
+
+while not user:
+    print("TEST")
+    user.append(1)
