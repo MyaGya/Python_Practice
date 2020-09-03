@@ -79,3 +79,14 @@ user = []
 while not user:
     print("TEST")
     user.append(1)
+
+
+#stable 확인
+test = []
+for i in range(10):
+    test.append([i,i])
+
+test.append([3,0])
+test.sort(key=lambda x:x[0])
+print(test)
+

@@ -23,5 +23,5 @@ print(ret)
 
 A = [1]
 B = [[2]]
-A += B
+A.append(B)
 print (A)
