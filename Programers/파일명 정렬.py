@@ -6,9 +6,6 @@ def solution(files):
     return b
 
 
-print(solution())
-
-
 '''
 def solution(files):
     data = []
@@ -34,3 +31,8 @@ def solution(files):
         ret.append(L[0])
     return ret
 '''
+
+A = {1,2,3}
+B = {3,4,5}
+A.update((B))
+print (A)
