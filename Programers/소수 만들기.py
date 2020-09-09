@@ -19,3 +19,6 @@ def solution(nums):
         if prime_number[sum(L)]:
             ans += 1
     return ans
+
+
+
