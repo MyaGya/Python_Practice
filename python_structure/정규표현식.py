@@ -11,6 +11,6 @@ print(ret)
 
 
 tmp = "aba aabaa"
-p = re.compile('aaba')
+p = re.compile('aba')
 r = p.findall(tmp)
 print(r)
