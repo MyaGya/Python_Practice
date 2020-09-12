@@ -15,3 +15,7 @@ def solution(s, n):
             ret += ' '
     return ret
 print(solution("z",1))
+
+
+
+print (['even' if i%2 == 0 else 'zero' if i ==0 else 'odd' for i in range(10)])
