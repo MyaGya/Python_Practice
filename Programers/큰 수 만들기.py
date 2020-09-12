@@ -1,15 +1,20 @@
 def solution(number, k):
-    start, end = 0, len(number) - (len(number)-k) + 1
-    ret = ""
-    for _ in range(len(number)-k):
-        MAX = ''
-        idx = 0
-        for i in range(start,end):
-            if number[i] > MAX:
-                MAX = number[i]
-                idx = i
-        start = idx + 1
-        end += 1
-        ret += MAX
-    return ret
-print(solution("4177252841",0))
+    stack = [number[0]]
+    for i in range(1, len(number)):
+        if not stack:
+            stack.append(number[i])
+            continue
+        while stack and stack[-1] < number[i]:
+            stack.pop()
+            k -= 1
+            if k == 0:
+                stack.append(number[i:])  # 종료시 남은 수 모두 삽입
+                break
+        else:
+            stack.append(number[i])
+            continue
+        break
+    return "".join(stack[:len(stack)-k]) if k else "".join(stack)
+
+
+print(solution("1924",3))
