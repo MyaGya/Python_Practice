@@ -14,3 +14,12 @@ def solution(n, cores):
     return core_number + 1
 
 print(solution(6,[1,2,3]))
+
+
+
+test = []
+heapq.heappush(test,[1,2,3])
+heapq.heappush(test,[1,2])
+
+
+print(test)
