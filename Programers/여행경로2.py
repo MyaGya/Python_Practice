@@ -1,23 +1,36 @@
 from collections import defaultdict
-import heapq
 
 
 def solution(tickets: [str]):
+    n = len(tickets)
     ### init ###
     route = defaultdict(list)
-    for ticket in tickets:
-        heapq.heappush(route[ticket[0]], ticket[1])
-    for key in route.keys():
-        route[key] = list(reversed(route[key]))
-    stack = ["ICN"]
-    ret = []
-    while stack:
-        top = stack[-1]
-        if top not in route or len(route[top]) == 0: # 종료조건
-            ret.append(stack.pop())
-        else:
-            stack.append(route[top][-1])
-            route[top].pop()
-    return list(reversed(ret))
+    visited = defaultdict(int )
+    tickets.sort(key=lambda x: x[1])
 
-print(solution([['ICN', 'A'], ['A', 'C'], ['A', 'D'], ['D', 'B'], ['B', 'A']]))
+    for ticket in tickets:
+        route[ticket[0]].append(ticket[1])
+    for ticket in route:
+        visited[ticket] = len(route[ticket])
+    print(visited)
+    ret = ["ICN"]
+
+    def dfs(starting):  # 목적지를 기준으로 반복
+
+        if len(ret) == n+1:  # 종료 조건
+            return True
+        if visited[starting] <=0:  # 티켓보다 많이 방문했을 경우 종료
+            return False
+
+        visited[starting] -= 1
+        for ticket in route[starting]:
+            ret.append(ticket)
+            if dfs(ticket):
+                return True
+            ret.pop()
+        visited[starting] += 1
+
+    dfs("ICN")
+    return ret
+
+print(solution([['ICN', 'SFO'], ['ICN', 'ATL'], ['SFO', 'ATL'], ['ATL', 'ICN'], ['ATL','SFO']]))
