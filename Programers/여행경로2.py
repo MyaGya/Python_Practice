@@ -18,6 +18,6 @@ def solution(tickets: [str]):
         else:
             stack.append(route[top][-1])
             route[top].pop()
-    return(list(reversed(ret)))
+    return list(reversed(ret))
 
-print(solution([['ICN', 'A'], ['ICN', 'A'], ['A', 'ICN']]))
+print(solution([['ICN', 'A'], ['A', 'C'], ['A', 'D'], ['D', 'B'], ['B', 'A']]))
