@@ -6,4 +6,4 @@ def solution(n):
     return b
 
 
-print(solution(100))
+print(solution(5))
