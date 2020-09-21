@@ -21,4 +21,6 @@ def solution(n, k):
     while tmp:
         ret.append(reference.pop(tmp.popleft()))
     return ret
+
+
 print(solution(3,5))
