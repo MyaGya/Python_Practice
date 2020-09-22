@@ -1,27 +1,16 @@
+def hanoi(num, start, to, mid, answer):
+    #종료조건
+    if num == 1:
+        return answer.append([start, to])
+    #﻿1번 기둥에 있는 n개의 원반 중 n-1개를 2번 기둥으로 옮깁니다.(3번 기둥을 거쳐감)
+    hanoi(num-1, start, mid, to, answer)
+    answer.append([start, to])
+    #﻿2번 기둥에 있는 n-1개의 원반을 다시 3번 기둥으로 옮깁니다.(1번 기둥을 거쳐감)
+    hanoi(num-1, mid, to, start, answer)
 def solution(n):
-    top = [[], list(range(1, n + 1)), [], []]
-    global check_top_3
-    check_top_3 = n
-    ret = []
-
-    def bfs(number):
-        global check_top_3
-        if len(top[3]) == n or (top[3] and top[3][-1] == check_top_3):
-            check_top_3 -= 1
-            return True
-
-        for i in range(1, 4):
-            if not top[i] or top[number][-1] < top[i][-1]:
-                top[i].append(top[number].pop())
-                ret.append([number, i])
-                if bfs(i):          # 값을 찾을 경우
-                    if len(top[3]) == n:
-                        return
-                else:               # 찾지 못할 경우
-                    ret.pop()
-                    top[number].append(top[i].pop())
-    bfs(1)
-    return ret
+    answer = []
+    hanoi(n, 1, 3, 2, answer)
+    return answer
 
 
 print(solution(2))
