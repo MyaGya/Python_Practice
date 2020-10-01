@@ -4,19 +4,18 @@ def solution(lines):
         _, end, time = line.split()
         h,m,s = end.split(":")
         end = (int(h)*60*60 + int(m) * 60 + float(s))*1000
-        logs.append((end-float(time[:-1])*1000+1, end)) # 시작시간을 포함
-    print(logs)
-    length = len(logs)
-    max_ = 1
-    for i in range(length-1):
+        logs.append((end-float(time[:-1])*1000+1, end)) # include start_time
+
+    ret = 1
+    for i in range(len(logs)):
         cnt = 1
-        for j in range(i+1, length):
-            if logs[j][1] - logs[i][1] >= 4000:
+        for j in range(i+1, len(logs)):
+            if logs[j][1] - logs[i][1] >= 4001: # max timeOut 3000 + 1000
                 break
             if logs[j][0] - logs[i][1] < 1000:
                 cnt += 1
-        max_ = max(max_, cnt)
-    return max_
+        ret = max(ret, cnt)
+    return ret
 
 
 print(solution([
