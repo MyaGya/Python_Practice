@@ -1,17 +1,20 @@
+import time
+
+
+start = time.time()
+data = [i for i in range(10000000)]
+end = time.time()
+print(end-start)
 
 
 
+start = time.time()
 
-data1 = input()
-data2 = input()
+data2 = map(str,data)
+data[0] = 10
 
+end = time.time()
+print(end-start)
 
+print(list(data2)[0])
 
-for i in range(len(data1)):
-    if data1[i] == data2[i]:
-        print("같다")
-    else:
-        print("다르다")
-
-
-print("======")
