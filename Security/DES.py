@@ -40,14 +40,12 @@ class myDES():
 if __name__ == '__main__':
     keytext = 'iloveyou'
     ivtext = '1234'
-    msg = 'asi182kd23'
+    msg = 'asi1821s'
 
     myCipher = myDES(keytext, ivtext)
     ciphered = myCipher.enc(msg)
     deciphered = myCipher.dec(ciphered)
 
-    print("Original   : \t%s" % msg)
-    print("Ciphered   : \t%s" % ciphered)
-    print("Deciphered : \t%s" % deciphered)
-
-#출처: https: // secretpack.tistory.com / 101[secretpack's blog]
+    print(f"Original   : \t{msg}")
+    print(f"Ciphered   : \t{ciphered}")
+    print(f"Deciphered : \t{deciphered}")
