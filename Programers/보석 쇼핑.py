@@ -1,3 +1,5 @@
+'''
+1회차
 from collections import deque
 from collections import defaultdict
 def solution(gems):
@@ -26,5 +28,35 @@ def solution(gems):
     return [ret[0]+1,ret[1]+1]
 
 
-print(solution(["ZZZ", "YYY", "NNNN", "YYY", "BBB"]
-))
+print(solution(["ZZZ", "YYY", "NNNN", "YYY", "BBB"]))
+'''
+
+from collections import defaultdict
+def solution(gems):
+    n = len(set(gems))
+    my_gem = defaultdict(int)
+    L = R = 0
+    ret = []
+    flag = False
+    while R < len(gems):
+        if len(my_gem) < n:         # 보석이 아직 모자란 경우
+            my_gem[gems[R]] += 1
+        while len(my_gem) == n:
+            my_gem[gems[L]] -= 1
+            if my_gem[gems[L]] == 0:
+                del my_gem[gems[L]]
+            L += 1
+            flag = True
+        if flag:
+            ret.append([L,R+1])  # 값 보정
+            flag = False
+        R += 1
+
+    MAX = [0,100001]
+    for data in ret:
+        if data[1] - data[0] < MAX[1]-MAX[0]:
+            MAX = data
+    return MAX
+
+
+print(solution(["AA", "AB", "AC", "AA", "AC"]))
