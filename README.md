@@ -1,2 +1,2 @@
 # Python_Practice
-Basic Python coding
+파이썬과 관련된 기초적인 코딩 테스트 연습 및 구조 연습을 하는 저장소입니다.
