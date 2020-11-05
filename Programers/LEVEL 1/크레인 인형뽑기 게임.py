@@ -17,3 +17,4 @@ def solution(board, moves):
                 stack.pop()
                 ret += 2
     return ret
+
