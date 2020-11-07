@@ -13,8 +13,3 @@ def solution(answers):
     tmp = [[1, cnt1], [2, cnt2], [3, cnt3]]
     tmp = sorted(tmp, key=lambda x: x[1], reverse=True)
     return [L[0] for L in tmp if L[1] == max(cnt1, cnt2, cnt3)]
-    
-    # 여러줄의 if - else 쓰는 예시
-    #return [L[0] if L[1] == True else L[1] for L in tmp if ]
-
-print(solution([1, 2, 3, 4, 5]))
