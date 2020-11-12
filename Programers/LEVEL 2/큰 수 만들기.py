@@ -1,3 +1,4 @@
+'''
 def solution(number, k):
     stack = [number[0]]
     for i in range(1, len(number)):
@@ -16,5 +17,26 @@ def solution(number, k):
         break
     return "".join(stack[:len(stack)-k]) if k else "".join(stack)
 
+'''
 
-print(solution("1924",3))
+
+def solution(number, k):
+    stack = []
+    # delete k
+    for i in range(len(number)):
+        if not stack:
+            stack.append(number[i])
+            continue
+        stack.append(number[i])
+        while len(stack) > 1 and stack[-1] > stack[-2]:
+            k -= 1
+            stack[-2] = stack[-1]
+            stack.pop()
+            if k == 0:
+                break
+        if k == 0:
+            break
+    return "".join(stack)[:-k] if k != 0 else "".join(stack) + number[i+1:]
+
+
+print(solution("1924",2))
