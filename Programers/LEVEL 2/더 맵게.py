@@ -1,4 +1,5 @@
 import heapq
+'''
 def solution(scoville, K):
     heapq.heapify(scoville)
     ret = 0
@@ -10,10 +11,15 @@ def solution(scoville, K):
     if K < scoville[0]:
         return ret
     return -1
+'''
+def solution(scoville, K):
+    heapq.heapify(scoville)
+    ans = 0
+    while scoville[0] < K and len(scoville) >= 2:
+        food1, food2 = heapq.heappop(scoville), heapq.heappop(scoville)
+        heapq.heappush(scoville, food1 + food2 * 2)
+        ans += 1
+    return ans if scoville[0] >= K else -1
 
 
-
-
-k = int(input())
-scoville = list(map(int, input().split()))
-print(solution(scoville, k))
+print(solution([1, 2], 7))

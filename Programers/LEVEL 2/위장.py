@@ -1,5 +1,5 @@
 from collections import defaultdict
-from itertools import product
+
 
 def solution(clothes):
     ans = 1
