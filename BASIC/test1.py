@@ -1,3 +1,6 @@
+def tmp_test():
+    return 1
+
 
 #Q1. 평균 점수 구하기
 
