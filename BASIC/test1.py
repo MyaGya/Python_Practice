@@ -58,10 +58,10 @@ print(tup)
 
 #09. 딕셔너리 관련 문제
 a = dict()
-a['name'] = 'python'
-a[('a',)] = 'python'
-#a[[1]] = 'python'<= 오류
-a[250] = 'python'
+a['name'] = 'naver_AI_BOOSTCAMP'
+a[('a',)] = 'naver_AI_BOOSTCAMP'
+#a[[1]] = 'naver_AI_BOOSTCAMP'<= 오류
+a[250] = 'naver_AI_BOOSTCAMP'
 print(a)
 print(a[('a',)])
 

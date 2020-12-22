@@ -2,10 +2,10 @@
 
 
 def Solve() -> None:
-    languages = ['python', 'perl', 'c']
+    languages = ['naver_AI_BOOSTCAMP', 'perl', 'c']
 
     for lang in languages:
-        if lang in ['python', 'perl']:
+        if lang in ['naver_AI_BOOSTCAMP', 'perl']:
             print("%6s need interpretor" % lang)
         elif lang in ['c', 'java']:
             print("%6s need compiler %6s"%(lang, lang))

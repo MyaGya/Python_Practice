@@ -1,10 +1,10 @@
 # Q1
 
-a = "Life is too short, you need python"
+a = "Life is too short, you need naver_AI_BOOSTCAMP"
 if "wife" in a:
     print("wife")
-elif "python" in a and "you" not in a:
-    print("python")
+elif "naver_AI_BOOSTCAMP" in a and "you" not in a:
+    print("naver_AI_BOOSTCAMP")
 elif "shirt" not in a:
     print("shirt")
 elif "need" in a:
