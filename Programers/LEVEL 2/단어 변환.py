@@ -1,4 +1,3 @@
-from collections import deque
 ret = 0
 def solution(begin, target, words):
     queue = deque()
