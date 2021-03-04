@@ -11,7 +11,7 @@ def solution(distance, rocks, n):
         MIN = distance
         delete_rock = 0
 
-        mid = (L+R)//2
+        mid = (L + R) // 2
         for i in range(1, len(rocks)):
             if rocks[i] - rocks[prev] < mid:
                 delete_rock += 1
@@ -24,6 +24,6 @@ def solution(distance, rocks, n):
             ret = MIN
             L = mid + 1
     return ret
-print(solution(25,[2, 14, 11, 21, 17],2))
 
 
+print(solution(25, [2, 14, 11, 21, 17], 2))
