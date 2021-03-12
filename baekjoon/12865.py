@@ -15,17 +15,21 @@ for _ in range(n):
 
 i = 0
 for weight, value in data:
-    dp[i][weight] = value
+    if weight < n - 1:
+        dp[i][weight] = value
     i += 1
 
 
 def value_of_dp(col, row):
     if col < 0 or row < 0:  # 잘못된 값이라면
         return 0
-    if dp[col][row] is not -1:  # 값이 설정되어 있다면
+    if dp[col][row] != -1:  # 값이 설정되어 있다면
         return dp[col][row]
 
-    dp[col][row] = max(value_of_dp(col - 1, row), value_of_dp(col - 1, row - data[col][0]) + data[row][1])
+    value1 = value_of_dp(col - 1, row)
+    value2 = value_of_dp(col - 1, row - data[col][0]) + data[col][1] if row - data[col][0] >= 0 else 0
+    dp[col][row] = max(value1, value2)
+    return dp[col][row]
 
 
 print(value_of_dp(n, k))
