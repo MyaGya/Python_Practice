@@ -1,10 +1,11 @@
 import heapq
+import sys
 
-n = int(input())
+n = int(sys.stdin.readline())
 max_heap = []
 min_heap = []
 for i in range(n):
-    value = int(input())
+    value = int(sys.stdin.readline())
 
     if len(max_heap) == 0 or len(min_heap) == len(max_heap):
         heapq.heappush(max_heap, -1 * value)
