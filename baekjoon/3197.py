@@ -1,58 +1,7 @@
 import sys
-from typing import List, Tuple
 
 dx = [-1, 0, 1, 0]
 dy = [0, -1, 0, 1]
-
-
-def is_meet_duck(start: Tuple, goal: Tuple, lake: List):
-    visited = {}
-    y, x = start
-    dfs_stack = []
-    dfs_stack.append((x, y))
-    while dfs_stack:
-        x, y = dfs_stack.pop()
-        visited[(x, y)] = True
-        if (y, x) == goal:
-            return True
-        for i in range(4):
-            next_x = x + dx[i]
-            next_y = y + dy[i]
-            if next_x < 0 or next_y < 0 or next_x >= col or next_y >= row or \
-                    lake[next_y][next_x] == 'X' or \
-                    (next_x, next_y) in visited:
-                continue
-            dfs_stack.append((next_x, next_y))
-    return False
-
-
-def next_day(lake: List):
-    visited = {}
-    dot_position = []
-    for i in range(row):
-        for j in range(col):
-            if lake[i][j] == ".":
-                visited[(i, j)] = True
-                dot_position.append((i, j))
-
-    expected_melting_position = set()
-    while dot_position:
-        y, x = dot_position.pop()
-
-        for i in range(4):
-            next_x = x + dx[i]
-            next_y = y + dy[i]
-            if next_x < 0 or next_y < 0 or next_x >= col or next_y >= row or \
-                    lake[next_y][next_x] != "X" or (next_y, next_x) in visited:
-                continue
-
-            visited[(next_y, next_x)] = True
-            expected_melting_position.add((next_y, next_x))
-
-    while expected_melting_position:
-        y, x = expected_melting_position.pop()
-        lake[y][x] = "."
-
 
 if __name__ == "__main__":
 
@@ -68,11 +17,36 @@ if __name__ == "__main__":
         for j in range(col):
             if lake[i][j] == 'L':
                 duck_position.append((i, j))
-    day = 0
 
     start, goal = duck_position
 
-    while not is_meet_duck(start, goal, lake):
+    day = 0
+
+    visited = {}
+
+    stack = []
+    next_stack = []
+    next_stack.append(start)
+    meet = False
+    while not meet:
+        stack = next_stack
+        next_stack = []
+        while stack:
+            y, x = stack.pop()
+            if y < 0 or x < 0 or x >= col or y >= row or (y, x) in visited:
+                continue
+            elif lake[y][x] == "X":
+                lake[y][x] = day
+                # visited[(y, x)] = True
+                next_stack.append((y, x))
+            elif lake[y][x] == "L" and (y, x) != start:
+                print(day) if day == 0 else print(day - 1)
+                meet = True
+                break
+            else:
+                visited[(y, x)] = True
+                for i in range(4):
+                    next_y = y + dy[i]
+                    next_x = x + dx[i]
+                    stack.append((next_y, next_x))
         day += 1
-        next_day(lake)
-    print(day)
