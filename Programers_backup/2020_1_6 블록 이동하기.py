@@ -1,14 +1,15 @@
 # X와 Y축을 거꾸로 생각하고 풀었다. board[X축][Y축]이라고 생각해버림. 결과적으로는 큰 차이 없었지만 주의 할 것
-import sys
 import collections
+import sys
+
 # 초기값 및 최대값
-sys.setrecursionlimit(10**8) # 10^8 까지 늘림.
+sys.setrecursionlimit(10 ** 8)  # 10^8 까지 늘림.
+
 
 def BFS(board, visited, que, X, Y, option, depth):
-
-
     # 예외 조건
-    if X < 0 or Y < 0 or X > len(board)-1 or Y > len(board)-1 or (option==0 and X > len(board)-2) or (option == 1 and Y > len(board)-2) or visited[X][Y][option] != -1:
+    if X < 0 or Y < 0 or X > len(board) - 1 or Y > len(board) - 1 or (option == 0 and X > len(board) - 2) or (
+            option == 1 and Y > len(board) - 2) or visited[X][Y][option] != -1:
         return -1
     if option == 0:
         if board[X][Y] == 1 or board[X+1][Y] == 1:
