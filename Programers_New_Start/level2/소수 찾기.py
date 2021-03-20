@@ -1,5 +1,5 @@
 from itertools import permutations
-
+from math import sqrt
 
 def solution(numbers):
     ans = 0
@@ -7,12 +7,13 @@ def solution(numbers):
     primes = [True for _ in range(10000000)]
     primes[0] = False
     primes[1] = False
-
-    for i in range(2, primes_max // 2 + 1):
+    # make primes
+    for i in range(2, int(sqrt(primes_max)) + 1):
         if primes[i]:
             for j in range(2 * i, primes_max, i):
                 primes[j] = False
 
+    # run permutations
     for i in range(1, len(numbers) + 1):
         data = list(permutations(numbers, i))
         for L in data:
