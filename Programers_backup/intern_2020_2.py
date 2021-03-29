@@ -1,7 +1,9 @@
 # 연산자 운선순위
-from collections import deque
-import itertools
 import copy
+import itertools
+from collections import deque
+
+
 def solution(expression):
     # 연산자 우선순위
     priority = list(itertools.permutations(['+', '-', '*'], 3))

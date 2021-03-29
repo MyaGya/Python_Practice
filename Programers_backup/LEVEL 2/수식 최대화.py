@@ -1,6 +1,7 @@
+import copy
 import re
 from itertools import permutations
-import copy
+
 
 def calc(data, seq):
     for operator in seq:

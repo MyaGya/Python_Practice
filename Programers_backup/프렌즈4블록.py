@@ -1,5 +1,3 @@
-from collections import deque
-
 def section(i1,i2,j1,j2):
     global board
     try:

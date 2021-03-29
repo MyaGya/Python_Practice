@@ -1,10 +1,8 @@
-
 import random
 import timeit
-import matplotlib.pyplot as plt
-import numpy as np
-import math
 from operator import itemgetter
+
+import matplotlib.pyplot as plt
 
 a = list(range(1000))
 b = list(range(1000))
