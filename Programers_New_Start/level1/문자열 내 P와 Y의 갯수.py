@@ -1,6 +1,7 @@
 def solution(s: str):
     data = s.count("p" or "o")
-    return data
+    print(data)
+    print(s.count("pPp"))
 
 
 print(solution("pPoooyY"))
